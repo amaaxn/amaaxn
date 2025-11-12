@@ -77,7 +77,7 @@ Repo: [github.com/amaaxn/dentwise-ai](#)
 
 ### Dynamic Goodies
 <p align="center">
-  <img alt="Snake animation" src="https://raw.githubusercontent.com/amaaxn/amaaxn/main/output/snake-dark.svg" />
+  <img alt="Snake animation" src="https://raw.githubusercontent.com/amaaxn/amaaxn/main/output/snake.svg" />
 </p>
 
 <details>
