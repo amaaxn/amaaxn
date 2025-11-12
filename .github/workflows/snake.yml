@@ -1,14 +1,14 @@
-name: Generate snake
+name: Generate snake (dark + smoother)
 
 on:
   schedule:
-    - cron: "0 0 * * 1"      # Mondays 00:00 UTC
-  workflow_dispatch:          # allow manual run
+    - cron: "0 0 * * 1"     # Mondays 00:00 UTC
+  workflow_dispatch:         # allow manual run
   push:
     branches: [main]
 
 permissions:
-  contents: write             # must be here so the job can commit
+  contents: write
 
 jobs:
   build:
@@ -17,6 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 1) Generate the base snake SVG
       - name: Generate snake.svg
         uses: Platane/snk@v3
         with:
@@ -24,12 +25,39 @@ jobs:
           outputs: |
             ./dist/snake.svg
 
-      - name: Save to /output and commit
+      # 2) Post-process for dark background + smoother animation.
+      #    - Inject a dark background rectangle
+      #    - Reduce grid opacity a touch (if present)
+      #    - Slightly speed up animation for "fluid" feel
+      - name: Make dark + smooth variants
         run: |
           mkdir -p output
-          cp dist/snake.svg output/snake.svg
+          cp dist/snake.svg output/snake-dark.svg
+
+          # Add a deep purple/near-black background rect after the <svg ...> tag
+          # This avoids relying on theme flags and works regardless of defaults.
+          # Insert: <rect width="100%" height="100%" fill="#0b0b12"/>
+          awk '{
+            if($0 ~ /<svg[^>]*>/ && !inserted){
+              print $0;
+              print "<rect width=\"100%\" height=\"100%\" fill=\"#0b0b12\"/>";
+              inserted=1;
+            } else {
+              print $0;
+            }
+          }' output/snake-dark.svg > output/snake-dark.tmp && mv output/snake-dark.tmp output/snake-dark.svg
+
+          # Optional: soften grid if a light grid color exists (best-effort)
+          sed -i 's/stroke-opacity="0.2"/stroke-opacity="0.12"/g' output/snake-dark.svg || true
+
+          # Make animation a bit more fluid by reducing duration if present
+          # Common SMIL attribute is dur="12s" or similar — trim by ~20%
+          sed -i 's/dur="\([0-9]\+\)s"/dur="$((\1*8/10))s"/g' output/snake-dark.svg || true
+
+      - name: Commit and push
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output/snake.svg
-          git commit -m "chore: update snake" || echo "No changes"
+          git add output/snake-dark.svg
+          git commit -m "chore: update dark snake" || echo "No changes"
           git push
