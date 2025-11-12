@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write              # REQUIRED so the job can commit the file
+  contents: write
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1) Generate the base snake (light) into dist/snake.svg
+      # 1) Generate the base snake
       - name: Generate snake.svg
         uses: Platane/snk@v3
         with:
@@ -25,7 +25,7 @@ jobs:
           outputs: |
             ./dist/snake.svg
 
-      # 2) Post-process: add dark bg + smoother timing, then save as output/snake.svg
+      # 2) Post-process: add dark bg + smoother timing, then save back to output/snake.svg
       - name: Convert to dark background + smooth animation
         run: |
           python3 - << 'PY'
@@ -35,19 +35,19 @@ jobs:
           out_dir.mkdir(parents=True, exist_ok=True)
           svg = src_path.read_text(encoding="utf-8")
 
-          # Insert a dark background rectangle right after the opening <svg>
+          # IMPORTANT: use \1 (single backslash) to keep the captured <svg ...> tag
           svg = re.sub(
               r"(<svg[^>]*>)",
-              r'\\1\n<rect width="100%" height="100%" fill="#0b0b12"/>',
+              r'\1\n<rect width="100%" height="100%" fill="#0b0b12"/>',
               svg,
               count=1,
               flags=re.IGNORECASE
           )
 
-          # Soften grid lines slightly (if present)
+          # Soften grid lines a touch (best-effort)
           svg = re.sub(r'stroke-opacity="0\.2"', 'stroke-opacity="0.12"', svg)
 
-          # Make animation feel more fluid by trimming durations a bit
+          # Trim animation durations slightly for a smoother feel
           def scale_dur(m):
               try:
                   n = int(m.group(1))
@@ -57,8 +57,7 @@ jobs:
               return f'dur="{new}s"'
           svg = re.sub(r'dur="(\d+)s"', scale_dur, svg)
 
-          # Optional: tint snake stroke to subtle purple (safe best-effort)
-          # Comment out the next line if you prefer the original stroke color.
+          # Optional: tint the snake path once to a purple accent
           svg = re.sub(r'stroke="#[0-9a-fA-F]{6}"', 'stroke="#8B5CF6"', svg, count=1)
 
           (out_dir / "snake.svg").write_text(svg, encoding="utf-8")
@@ -70,5 +69,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add output/snake.svg
-          git commit -m "chore: update snake (dark + smooth)" || echo "No changes"
+          git commit -m "fix: valid svg (dark + smooth)" || echo "No changes"
           git push
