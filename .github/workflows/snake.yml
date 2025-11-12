@@ -1,24 +1,23 @@
-name: Generate snake (dark + smooth)
+name: Generate snake (dark + smooth, same filename)
 
 on:
   schedule:
-    - cron: "0 0 * * 1"         # Mondays 00:00 UTC
-  workflow_dispatch:             # allow manual run
+    - cron: "0 0 * * 1"       # Mondays 00:00 UTC
+  workflow_dispatch:           # allow manual run
   push:
     branches: [main]
 
 permissions:
-  contents: write                # REQUIRED to commit the generated file
+  contents: write              # REQUIRED so the job can commit the file
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1) Generate the base snake SVG
+      # 1) Generate the base snake (light) into dist/snake.svg
       - name: Generate snake.svg
         uses: Platane/snk@v3
         with:
@@ -26,42 +25,50 @@ jobs:
           outputs: |
             ./dist/snake.svg
 
-      # 2) Post-process with Python for dark bg + smoother animation
-      - name: Post-process snake to dark + smooth
+      # 2) Post-process: add dark bg + smoother timing, then save as output/snake.svg
+      - name: Convert to dark background + smooth animation
         run: |
           python3 - << 'PY'
-          import re, sys, pathlib
-          src = pathlib.Path("dist/snake.svg").read_text(encoding="utf-8")
+          import re, pathlib
+          src_path = pathlib.Path("dist/snake.svg")
+          out_dir = pathlib.Path("output")
+          out_dir.mkdir(parents=True, exist_ok=True)
+          svg = src_path.read_text(encoding="utf-8")
 
-          # Insert a dark background right after the opening <svg ...> tag
-          # This ensures it looks correct on dark mode everywhere.
-          src = re.sub(
+          # Insert a dark background rectangle right after the opening <svg>
+          svg = re.sub(
               r"(<svg[^>]*>)",
               r'\\1\n<rect width="100%" height="100%" fill="#0b0b12"/>',
-              src,
+              svg,
               count=1,
               flags=re.IGNORECASE
           )
 
-          # Optional: soften any bright grid lines
-          src = re.sub(r'stroke-opacity="0\.2"', 'stroke-opacity="0.12"', src)
+          # Soften grid lines slightly (if present)
+          svg = re.sub(r'stroke-opacity="0\.2"', 'stroke-opacity="0.12"', svg)
 
-          # Make animation a bit more fluid by trimming durations (e.g., dur="12s" -> dur="10s")
+          # Make animation feel more fluid by trimming durations a bit
           def scale_dur(m):
-              n = int(m.group(1))
-              new = max(5, int(round(n * 0.85)))  # keep reasonable floor
+              try:
+                  n = int(m.group(1))
+              except ValueError:
+                  return m.group(0)
+              new = max(5, int(round(n * 0.85)))
               return f'dur="{new}s"'
-          src = re.sub(r'dur="(\d+)s"', scale_dur, src)
+          svg = re.sub(r'dur="(\d+)s"', scale_dur, svg)
 
-          pathlib.Path("output").mkdir(parents=True, exist_ok=True)
-          pathlib.Path("output/snake-dark.svg").write_text(src, encoding="utf-8")
-          print("Wrote output/snake-dark.svg")
+          # Optional: tint snake stroke to subtle purple (safe best-effort)
+          # Comment out the next line if you prefer the original stroke color.
+          svg = re.sub(r'stroke="#[0-9a-fA-F]{6}"', 'stroke="#8B5CF6"', svg, count=1)
+
+          (out_dir / "snake.svg").write_text(svg, encoding="utf-8")
+          print("Wrote output/snake.svg")
           PY
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output/snake-dark.svg
-          git commit -m "chore: update dark snake" || echo "No changes"
+          git add output/snake.svg
+          git commit -m "chore: update snake (dark + smooth)" || echo "No changes"
           git push
