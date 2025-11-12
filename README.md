@@ -1,97 +1,106 @@
-<h1 align="center">Hey, I'm Amaan 👋</h1>
-
+<!-- Animated wave banner -->
 <p align="center">
-  <b>Computer Science & Applied Math student @ Stony Brook University</b><br>
-  Passionate about AI, full-stack development, and building meaningful tools that merge creativity with code.
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:1f6feb,100:0ea5e9&text=Amaan%20Abubakar&fontAlign=50&fontAlignY=35&fontSize=42&fontColor=ffffff" alt="header" />
+</p>
+
+<!-- Typing intro -->
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=26&duration=2500&pause=600&center=true&vCenter=true&repeat=true&width=720&lines=CS+%26+Applied+Math+@+Stony+Brook;React+%2B+Flask+%2B+TypeScript;Design+Systems+%7C+AI%2FData;I+turn+messy+problems+into+simple+tools." alt="Typing SVG" />
+</p>
+
+<!-- Quick links -->
+<p align="center">
+  <a href="mailto:amaanabubakar@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-181717?logo=gmail&logoColor=white"></a>
+  <a href="https://www.linkedin.com/in/amaann/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white"></a>
+  <a href="https://amaanabubakar.github.io/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-1f6feb?logo=firefox-browser&logoColor=white"></a>
+  <a href="https://github.com/amaaxn?tab=followers"><img alt="Followers" src="https://img.shields.io/github/followers/amaaxn?label=Followers&style=flat"></a>
+  <img alt="Profile Views" src="https://komarev.com/ghpvc/?username=amaaxn&style=flat&color=0ea5e9">
 </p>
 
 ---
 
-### 🧠 About Me
-- 🚀 Building **Curio Learning**, an AI platform that generates interactive study tools from YouTube videos (React + Flask + OpenAI)
-- 💻 Experienced with **Python, JavaScript, SQL, and TypeScript**
-- ☁️ Familiar with **AWS, Flask, and RESTful APIs**
-- 🧩 Interested in design systems, intelligent interfaces, and developer experience
-- 📚 Currently learning **machine learning, system design, and cloud infrastructure**
+### About
+- Building **Curio Learning**: AI study companion from YouTube transcripts (React, Flask, OpenAI)
+- Comfortable with **Python, TypeScript, JavaScript, SQL**
+- Tools I reach for: **Git, Docker, Postman, AWS basics, REST APIs**
+- Exploring **design systems, testing, CI, accessibility**
 
 ---
 
-### 🛠️ Tech Stack
-
-#### Languages
-![Python](https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=ffdd54)
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?logo=javascript)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript)
-![SQL](https://img.shields.io/badge/SQL-003B57?logo=databricks)
-
-#### Frameworks & Libraries
-![React](https://img.shields.io/badge/React-20232A?logo=react)
-![Flask](https://img.shields.io/badge/Flask-000000?logo=flask)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?logo=node.js)
-![Express](https://img.shields.io/badge/Express.js-404D59?logo=express)
-
-#### Tools & Cloud
-![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazon-aws)
-![Git](https://img.shields.io/badge/Git-F05032?logo=git)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman)
-
----
-
-### 🧩 Featured Projects
-
-**[Curio Learning](#)**  
-AI-powered study companion that generates quizzes and summaries from educational YouTube videos.  
-*React, Flask, OpenAI API, AWS, SQLite*
-
-**[Signalist](#)**  
-Financial dashboard and stock-market analysis app that visualizes performance trends in real-time.  
-*Node.js, MongoDB, React, Chart.js*
-
-**[Dentwise AI](#)**  
-Research-focused tool that analyzes dental X-rays using computer vision models.  
-*Python, TensorFlow, Flask*
-
----
-
-### 📈 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=transparent" alt="GitHub Stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=transparent" alt="Top Languages" />
+### Tech
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/Python-143?logo=python&logoColor=ffdd54">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000">
+  <img alt="SQL" src="https://img.shields.io/badge/SQL-003B57?logo=postgresql&logoColor=white">
+  <img alt="React" src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61dafb">
+  <img alt="Flask" src="https://img.shields.io/badge/Flask-000?logo=flask&logoColor=white">
+  <img alt="Node.js" src="https://img.shields.io/badge/Node.js-3C873A?logo=nodedotjs&logoColor=white">
+  <img alt="AWS" src="https://img.shields.io/badge/AWS-232F3E?logo=amazon-aws&logoColor=white">
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white">
+  <img alt="Git" src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white">
 </p>
 
 ---
 
-### 🧭 Connect With Me
+### Featured Projects
+**Curio Learning**  
+AI-powered study companion that generates quizzes and summaries from YouTube videos.  
+React, Flask, OpenAI, AWS, SQLite  
+Repo: [github.com/amaaxn/curio-learning](#) · Demo: [link](#)
+
+**Signalist**  
+Lightweight market dashboard with trend visuals and watchlists.  
+Node, React, MongoDB, Chart.js  
+Repo: [github.com/amaaxn/signalist](#)
+
+**Dentwise AI**  
+Experiments in dental X-ray analysis and simple CV pipelines.  
+Python, TensorFlow, Flask  
+Repo: [github.com/amaaxn/dentwise-ai](#)
+
+---
+
+### Stats
 <p align="center">
-  <a href="mailto:youremail@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white"></a>
-  <a href="https://www.linkedin.com/in/YOUR-LINKEDIN"><img src="https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&logoColor=white"></a>
-  <a href="https://github.com/YOUR_USERNAME"><img src="https://img.shields.io/badge/GitHub-100000?logo=github&logoColor=white"></a>
+  <!-- GitHub stats -->
+  <img height="165" alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=amaaxn&show_icons=true&hide_title=true&rank_icon=github&include_all_commits=true&theme=transparent" />
+</p>
+
+<p align="center">
+  <!-- Streaks -->
+  <img height="165" alt="Streak" src="https://streak-stats.demolab.com?user=amaaxn&theme=transparent&hide_longest_streak=true" />
+</p>
+
+<p align="center">
+  <!-- Activity graph -->
+  <img alt="Activity Graph" src="https://github-readme-activity-graph.vercel.app/graph?username=amaaxn&theme=github-compact&radius=8" />
 </p>
 
 ---
+
+### Dynamic Goodies
+<p align="center">
+  <!-- Contribution snake (generated by GitHub Action below) -->
+  <img alt="Snake animation" src="https://raw.githubusercontent.com/amaaxn/amaaxn/output/snake.svg" />
+</p>
 
 <details>
-  <summary>📚 Coursework</summary>
+  <summary>Coursework</summary>
 
-- Object Oriented Programming  
-- Data Structures & Algorithms  
-- Systems Fundamentals  
-- Analysis of Algorithms  
-- Computer Networks  
-- Theory of Computation  
-- Linear Algebra  
-- Probability & Statistics  
-- Calculus II  
-
+- OOP · Data Structures and Algorithms · Systems Fundamentals  
+- Analysis of Algorithms · Computer Networks · Theory of Computation  
+- Linear Algebra · Probability and Statistics · Calculus II
 </details>
 
----
+<details>
+  <summary>Now</summary>
+
+- Improving Curio Learning’s UX and caching  
+- Adding tests with React Testing Library and PyTest  
+- Brushing up on CI with GitHub Actions and simple CD to Vercel/Render
+</details>
 
 <p align="center">
-  <i>“The best ideas start with curiosity.”</i>
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=0:0ea5e9,100:1f6feb&section=footer" />
 </p>
