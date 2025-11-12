@@ -1,18 +1,19 @@
-name: Generate snake (dark + smoother)
+name: Generate snake (dark + smooth)
 
 on:
   schedule:
-    - cron: "0 0 * * 1"     # Mondays 00:00 UTC
-  workflow_dispatch:         # allow manual run
+    - cron: "0 0 * * 1"         # Mondays 00:00 UTC
+  workflow_dispatch:             # allow manual run
   push:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: write                # REQUIRED to commit the generated file
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,34 +26,37 @@ jobs:
           outputs: |
             ./dist/snake.svg
 
-      # 2) Post-process for dark background + smoother animation.
-      #    - Inject a dark background rectangle
-      #    - Reduce grid opacity a touch (if present)
-      #    - Slightly speed up animation for "fluid" feel
-      - name: Make dark + smooth variants
+      # 2) Post-process with Python for dark bg + smoother animation
+      - name: Post-process snake to dark + smooth
         run: |
-          mkdir -p output
-          cp dist/snake.svg output/snake-dark.svg
+          python3 - << 'PY'
+          import re, sys, pathlib
+          src = pathlib.Path("dist/snake.svg").read_text(encoding="utf-8")
 
-          # Add a deep purple/near-black background rect after the <svg ...> tag
-          # This avoids relying on theme flags and works regardless of defaults.
-          # Insert: <rect width="100%" height="100%" fill="#0b0b12"/>
-          awk '{
-            if($0 ~ /<svg[^>]*>/ && !inserted){
-              print $0;
-              print "<rect width=\"100%\" height=\"100%\" fill=\"#0b0b12\"/>";
-              inserted=1;
-            } else {
-              print $0;
-            }
-          }' output/snake-dark.svg > output/snake-dark.tmp && mv output/snake-dark.tmp output/snake-dark.svg
+          # Insert a dark background right after the opening <svg ...> tag
+          # This ensures it looks correct on dark mode everywhere.
+          src = re.sub(
+              r"(<svg[^>]*>)",
+              r'\\1\n<rect width="100%" height="100%" fill="#0b0b12"/>',
+              src,
+              count=1,
+              flags=re.IGNORECASE
+          )
 
-          # Optional: soften grid if a light grid color exists (best-effort)
-          sed -i 's/stroke-opacity="0.2"/stroke-opacity="0.12"/g' output/snake-dark.svg || true
+          # Optional: soften any bright grid lines
+          src = re.sub(r'stroke-opacity="0\.2"', 'stroke-opacity="0.12"', src)
 
-          # Make animation a bit more fluid by reducing duration if present
-          # Common SMIL attribute is dur="12s" or similar — trim by ~20%
-          sed -i 's/dur="\([0-9]\+\)s"/dur="$((\1*8/10))s"/g' output/snake-dark.svg || true
+          # Make animation a bit more fluid by trimming durations (e.g., dur="12s" -> dur="10s")
+          def scale_dur(m):
+              n = int(m.group(1))
+              new = max(5, int(round(n * 0.85)))  # keep reasonable floor
+              return f'dur="{new}s"'
+          src = re.sub(r'dur="(\d+)s"', scale_dur, src)
+
+          pathlib.Path("output").mkdir(parents=True, exist_ok=True)
+          pathlib.Path("output/snake-dark.svg").write_text(src, encoding="utf-8")
+          print("Wrote output/snake-dark.svg")
+          PY
 
       - name: Commit and push
         run: |
