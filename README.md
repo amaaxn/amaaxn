@@ -76,9 +76,11 @@ Repo: [github.com/amaaxn/dentwise-ai](#)
 ---
 
 ### Dynamic Goodies
+<!-- Dark animated bunny banner -->
 <p align="center">
-  <img alt="Snake animation" src="https://raw.githubusercontent.com/amaaxn/amaaxn/main/output/snake.svg" />
+  <img src="https://raw.githubusercontent.com/amaaxn/amaaxn/main/output/animated-bunny.svg" alt="Animated bunny banner" />
 </p>
+
 
 <details>
   <summary>Coursework</summary>
