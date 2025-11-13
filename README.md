@@ -1,14 +1,14 @@
-<!-- Elegant dark banner -->
+<!-- Wave header (purple → burgundy gradient) -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:6D28D9,50:7C3AED,100:7F1D1D&section=header&text=Amaan%20Abubakar&fontAlign=50&fontAlignY=35&fontSize=42&fontColor=F5F3FF&font=Playfair%20Display" alt="header" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:6D28D9,50:7C3AED,100:7F1D1D&text=Amaan%20Abubakar&fontAlign=50&fontAlignY=35&fontSize=42&fontColor=ffffff" alt="header" />
 </p>
 
 <!-- Typing intro -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=500&size=22&duration=2500&pause=600&center=true&vCenter=true&repeat=true&width=700&color=BF7AF0&lines=CS+%26+Applied+Math+@+Stony+Brook;React+%2B+Flask+%2B+TypeScript;Design+Systems+%7C+AI%2FData" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=26&duration=2500&pause=600&center=true&vCenter=true&repeat=true&width=720&color=BF7AF0&lines=CS+%26+Applied+Math+@+Stony+Brook;React+%2B+Flask+%2B+TypeScript;Design+Systems+%7C+AI%2FData;I+turn+messy+problems+into+simple+tools." alt="Typing SVG" />
 </p>
 
-<!-- Contact badges -->
+<!-- Quick links (purple badges) -->
 <p align="center">
   <a href="mailto:amaanabubakar@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-6D28D9?logo=gmail&logoColor=white"></a>
   <a href="https://www.linkedin.com/in/amaann/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-7C3AED?logo=linkedin&logoColor=white"></a>
@@ -19,10 +19,10 @@
 ---
 
 ### About
-- Building **Curio Learning** – an AI study companion that creates quizzes and summaries from YouTube videos  
-- Strong in **Python, TypeScript, JavaScript, SQL**  
-- Tools I rely on: **Git, Docker, Postman, AWS, REST APIs**  
-- Exploring **design systems, testing, CI/CD, and accessibility**
+- Building **Curio Learning**: AI study companion from YouTube transcripts (React, Flask, OpenAI)
+- Comfortable with **Python, TypeScript, JavaScript, SQL**
+- Tools I reach for: **Git, Docker, Postman, AWS basics, REST APIs**
+- Exploring **design systems, testing, CI, accessibility**
 
 ---
 
@@ -37,26 +37,26 @@
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-7F1D1D?logo=nodedotjs&logoColor=white">
   <img alt="AWS" src="https://img.shields.io/badge/AWS-4C1D95?logo=amazon-aws&logoColor=white">
   <img alt="Docker" src="https://img.shields.io/badge/Docker-5B21B6?logo=docker&logoColor=white">
-  <img alt="Git" src="https://img.shields.io/badge/Git-7F1D1D?logo=git&logoColor=white">
+  <img alt="Git" src="https://img.shields.io/badge/Git-7C1D1D?logo=git&logoColor=white">
 </p>
 
 ---
 
 ### Featured Projects
+
 **[Curio Learning](#)**  
 AI-powered study companion that generates quizzes and summaries from YouTube videos.  
 React, Flask, OpenAI, AWS, SQLite  
 Repo: [github.com/amaaxn/curio-learning](#) · Demo: [link](#)
 
 **[MovieSearch](https://github.com/amaaxn/MovieSearch)**  
-Clean, fast movie lookup tool with a focused search experience and result details.  
-React, OMDb API, Styled Components  
+Clean, fast movie lookup with a focused search UX and results view.  
 Repo: https://github.com/amaaxn/MovieSearch
 
 **[ChatCLI](https://github.com/amaaxn/ChatCLI)**  
-Command-line chat interface built for efficiency and minimalism.  
-Python, Rich, CLI Framework  
+Command-line chat tool with a minimal interface and extensible commands.  
 Repo: https://github.com/amaaxn/ChatCLI
+
 
 ---
 
@@ -75,11 +75,27 @@ Repo: https://github.com/amaaxn/ChatCLI
 
 ---
 
+
 <p align="center">
-  <img alt="Snake animation" src="https://raw.githubusercontent.com/amaaxn/amaaxn/main/output/snake.svg" />
+  <img src="https://raw.githubusercontent.com/amaaxn/amaaxn/main/output/snake.svg"/>
 </p>
 
----
+
+<details>
+  <summary>Coursework</summary>
+
+- OOP · Data Structures and Algorithms · Systems Fundamentals  
+- Analysis of Algorithms · Computer Networks · Theory of Computation  
+- Linear Algebra · Probability and Statistics · Calculus II
+</details>
+
+<details>
+  <summary>Now</summary>
+
+- Improving Curio Learning’s UX and caching  
+- Adding tests with React Testing Library and PyTest  
+- Brushing up on CI with GitHub Actions and simple CD to Vercel/Render
+</details>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=0:7F1D1D,50:7C3AED,100:6D28D9&section=footer" />
