@@ -37,7 +37,7 @@
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-7F1D1D?logo=nodedotjs&logoColor=white">
   <img alt="AWS" src="https://img.shields.io/badge/AWS-4C1D95?logo=amazon-aws&logoColor=white">
   <img alt="Docker" src="https://img.shields.io/badge/Docker-5B21B6?logo=docker&logoColor=white">
-  <img alt="Git" src="https://img.shields.io/badge/Git-7C1D1D?logo=git&logoColor=white">
+  <img alt="Git" src="https://img.shields.io/badge/Git-7F1D1D?logo=git&logoColor=white">
 </p>
 
 ---
@@ -71,6 +71,12 @@ Repo: https://github.com/amaaxn/ChatCLI
 
 <p align="center">
   <img alt="Activity Graph" src="https://github-readme-activity-graph.vercel.app/graph?username=amaaxn&theme=tokyo-night&radius=8" />
+</p>
+
+---
+
+<p align="center">
+  <img alt="Snake animation" src="https://raw.githubusercontent.com/amaaxn/amaaxn/main/output/snake.svg" />
 </p>
 
 ---
