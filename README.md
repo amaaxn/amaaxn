@@ -43,20 +43,20 @@
 ---
 
 ### Featured Projects
-**Curio Learning**  
+
+**[Curio Learning](#)**  
 AI-powered study companion that generates quizzes and summaries from YouTube videos.  
 React, Flask, OpenAI, AWS, SQLite  
 Repo: [github.com/amaaxn/curio-learning](#) · Demo: [link](#)
 
-**Signalist**  
-Lightweight market dashboard with trend visuals and watchlists.  
-Node, React, MongoDB, Chart.js  
-Repo: [github.com/amaaxn/signalist](#)
+**[MovieSearch](https://github.com/amaaxn/MovieSearch)**  
+Clean, fast movie lookup with a focused search UX and results view.  
+Repo: https://github.com/amaaxn/MovieSearch
 
-**Dentwise AI**  
-Experiments in dental X-ray analysis and simple CV pipelines.  
-Python, TensorFlow, Flask  
-Repo: [github.com/amaaxn/dentwise-ai](#)
+**[ChatCLI](https://github.com/amaaxn/ChatCLI)**  
+Command-line chat tool with a minimal interface and extensible commands.  
+Repo: https://github.com/amaaxn/ChatCLI
+
 
 ---
 
